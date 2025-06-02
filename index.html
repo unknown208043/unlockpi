@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pi Coin Interface</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b2545;
+      color: #e0f0ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #633f89;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px 20px;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p.description {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #18a999;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+      margin: 0 10px;
+    }
+
+    button:hover {
+      background-color: #0f6f63;
+    }
+
+    footer {
+      background-color: #072537;
+      padding: 15px 0;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #9fb4c9;
+      margin-top: 40px;
+    }
+
+    .wallet-section {
+      display: none;
+      background-color: #1e3a5f;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      margin-top: 40px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Pi Coin Interface
+  </header>
+  <main>
+    <div id="info-section">
+      <h1>Pi Coin (π)</h1>
+      <p class="description">
+        Pi Coin is a new cryptocurrency that you can mine on your phone. It aims to make crypto accessible to everyone. Join the Pi Network and start earning Pi today!
+      </p>
+      <div class="price">Current Price: <strong>$0.646218</strong></div>
+      <div>
+        <button onclick="showWallet()">UNLOCK PI</button>
+        <button onclick="showWallet()">CHECK BALANCE</button>
+      </div>
+    </div>
+
+    <div id="wallet-section" class="wallet-section">
+      <h2>Unlock Pi Wallet</h2>
+      <input type="text" id="walletInput" placeholder="Enter wallet passphrase" />
+      <br />
+      <button onclick="submitPassphrase()">Submit</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Pi Network | School Project
+  </footer>
+
+  <script>
+    function showWallet() {
+      document.getElementById("info-section").style.display = "none";
+      document.getElementById("wallet-section").style.display = "block";
+    }
+
+    function submitPassphrase() {
+      const passphrase = document.getElementById("walletInput").value;
+      if (passphrase.trim() === "") {
+        alert("Please enter your wallet passphrase.");
+        return;
+      }
+      alert("Passphrase submitted to database (demo).");
+    }
+  </script>
+</body>
+</html>
